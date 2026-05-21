@@ -1,30 +1,23 @@
 📸 AI Photo Cull
 Local, GPU‑accelerated AI culling for sports, derby, burlesque, and live‑gig photography.
-ai-photo-cull is a fully local, privacy‑preserving image‑culling tool designed for high‑volume RAW workflows. It evaluates:
+ai-photo-cull is a fully local, privacy‑preserving image‑culling tool designed for high‑volume RAW workflows. 
+
+It evaluates:
 
 Sharpness
-
 Face/Eye sharpness
-
 Exposure & noise
-
 Motion blur
-
 Subject detection (YOLO)
-
 Aesthetic appeal (LAION)
-
 Composition cues
 
 …and writes ON1‑compatible XMP metadata:
 
-⭐ Ratings
-
-🎨 Color labels
-
-✔ Picks
-
-❌ Rejects
+⭐ Ratings 
+🎨 Color labels 
+✔ Picks 
+❌ Rejects 
 
 It also generates a clean HTML contact sheet for fast review.
 
@@ -56,6 +49,7 @@ Python 3.14 is not supported by onnxruntime-silicon or rawpy.
 
 bash
 brew install python@3.11
+
 2. Run the installer script
 This sets up everything:
 
@@ -64,18 +58,18 @@ Python 3.11 virtualenv
 Dependencies
 
 ONNX models
-
 CLI command
-
 Folder structure
 
 bash
 chmod +x install_ai_photo_cull.sh
 ./install_ai_photo_cull.sh
+
 After installation, you can run:
 
 bash
 ai-photo-cull /path/to/shoot --profile derby
+
 📂 Folder Structure
 Code
 ai-photo-cull/
@@ -97,20 +91,22 @@ ai-photo-cull/
 ├── install_ai_photo_cull.sh
 ├── pyproject.toml
 └── README.md
+
 🧪 Usage
 Basic usage
 bash
 ai-photo-cull /path/to/images
+
 With a profile
 bash
 ai-photo-cull /path/to/images --profile sports
 ai-photo-cull /path/to/images --profile burlesque
 ai-photo-cull /path/to/images --profile derby
+
 Output
+
 XMP metadata written directly into your images
-
 ON1 Photo RAW picks up the changes automatically
-
 HTML report saved as:
 
 Code
@@ -119,6 +115,7 @@ Open it:
 
 bash
 open ai_photo_cull_report.html
+
 🧠 Scoring Logic
 Each image is evaluated on:
 
@@ -138,11 +135,8 @@ Each profile applies different weights.
 ON1 Photo RAW reads:
 
 XMP:Rating
-
 XMP:Label
-
 XMP:Pick
-
 XMP:Reject
 
 This tool writes those fields directly.
@@ -150,6 +144,7 @@ This tool writes those fields directly.
 ON1 automatically updates .on1 sidecars when it sees the XMP changes.
 
 🧩 Troubleshooting
+
 ❗ “onnxruntime-silicon has no wheels for cp314”
 You are using Python 3.14.
 
@@ -170,6 +165,7 @@ Re-run the installer or add this to your shell:
 
 bash
 echo "source ~/ai-photo-cull-env/bin/activate" >> ~/.zshrc
+
 📜 License
 MIT License.
 
@@ -177,11 +173,7 @@ MIT License.
 Pull requests welcome — especially:
 
 New scoring profiles
-
 New ONNX models
-
 Better face/eye detection
-
 Sport‑specific tuning (derby, polo, soccer, etc.)
-
 GPU optimizations
