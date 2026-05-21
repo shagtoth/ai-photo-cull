@@ -4,15 +4,18 @@ echo "=== AI-PHOTO-CULL INSTALLER ==="
 
 # 1. Install system dependencies
 echo "Installing Homebrew dependencies..."
-brew install python@3.12 exiftool wget unzip
+brew install python@3.11 exiftool wget unzip
 
-# 2. Create virtual environment
-echo "Creating Python virtual environment..."
-python3 -m venv ~/ai-photo-cull-env
+# 2. Create virtual environment using Python 3.11
+PY311=$(brew --prefix python@3.11)/bin/python3.11
+
+echo "Creating Python 3.11 virtual environment..."
+$PY311 -m venv ~/ai-photo-cull-env
 source ~/ai-photo-cull-env/bin/activate
 
 # 3. Install Python packages
 echo "Installing Python packages..."
+pip install --upgrade pip
 pip install rawpy opencv-python pillow numpy onnxruntime-silicon
 
 # 4. Create folder structure
@@ -31,7 +34,7 @@ wget -O ~/ai-photo-cull/models/laion_aesthetic.onnx \
 echo "Downloading SCRFD face detector..."
 wget -O /tmp/scrfd.zip \
   https://github.com/deepinsight/insightface/releases/download/onnx/models.zip
-unzip /tmp/scrfd.zip -d /tmp/scrfd
+unzip -o /tmp/scrfd.zip -d /tmp/scrfd
 cp /tmp/scrfd/scrfd_2.5g_bnkps.onnx ~/ai-photo-cull/models/face_detector.onnx
 
 # 6. Install your CLI script
@@ -45,4 +48,3 @@ sudo ln -sf ~/ai-photo-cull/ai_cull.py /usr/local/bin/ai-photo-cull
 
 echo "=== INSTALL COMPLETE ==="
 echo "Run with: ai-photo-cull /path/to/shoot --profile derby"
-
