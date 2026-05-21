@@ -31,11 +31,11 @@ echo "Downloading LAION aesthetic model..."
 wget -O ~/ai-photo-cull/models/laion_aesthetic.onnx \
   https://raw.githubusercontent.com/christophschuhmann/improved-aesthetic-predictor/main/onnx/aesthetic.onnx
 
-echo "Downloading SCRFD face detector..."
-wget -O /tmp/scrfd.zip \
-  https://github.com/deepinsight/insightface/releases/download/onnx/models.zip
-unzip -o /tmp/scrfd.zip -d /tmp/scrfd
-cp /tmp/scrfd/scrfd_2.5g_bnkps.onnx ~/ai-photo-cull/models/face_detector.onnx
+#echo "Downloading SCRFD face detector..."
+#wget -O /tmp/scrfd.zip \
+#  https://github.com/deepinsight/insightface/releases/download/onnx/models.zip
+#unzip -o /tmp/scrfd.zip -d /tmp/scrfd
+#cp /tmp/scrfd/scrfd_2.5g_bnkps.onnx ~/ai-photo-cull/models/face_detector.onnx
 
 # 6. Install your CLI script
 echo "Copying ai-photo-cull script..."
