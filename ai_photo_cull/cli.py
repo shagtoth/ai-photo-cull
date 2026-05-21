@@ -1,5 +1,6 @@
-from .core import process_directory
 import argparse
+from .core import process_directory
+
 
 def main():
     parser = argparse.ArgumentParser(description="AI Photo Culling Tool")
