@@ -39,12 +39,12 @@ cp /tmp/scrfd/scrfd_2.5g_bnkps.onnx ~/ai-photo-cull/models/face_detector.onnx
 
 # 6. Install your CLI script
 echo "Copying ai-photo-cull script..."
-cp ai_cull.py ~/ai-photo-cull/
+cp ai_photo_cull.py ~/ai-photo-cull/
 
 # 7. Create global symlink
 echo "Creating global ai-photo-cull command..."
-chmod +x ~/ai-photo-cull/ai_cull.py
-sudo ln -sf ~/ai-photo-cull/ai_cull.py /usr/local/bin/ai-photo-cull
+chmod +x ~/ai-photo-cull/ai_photo_cull.py
+sudo ln -sf ~/ai-photo-cull/ai_photo_cull.py /usr/local/bin/ai-photo-cull
 
 echo "=== INSTALL COMPLETE ==="
 echo "Run with: ai-photo-cull /path/to/shoot --profile derby"
